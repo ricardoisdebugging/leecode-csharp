@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.5.33414.496
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LeeCodeTest", "LeeCodeTest\LeeCodeTest.csproj", "{93855924-013D-4A50-A482-62007CDA8D96}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LeeCode", "LeeCode\LeeCode.csproj", "{E6F4C3C7-142E-4711-804A-15F13D3FD350}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{93855924-013D-4A50-A482-62007CDA8D96}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{93855924-013D-4A50-A482-62007CDA8D96}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{93855924-013D-4A50-A482-62007CDA8D96}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{93855924-013D-4A50-A482-62007CDA8D96}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E6F4C3C7-142E-4711-804A-15F13D3FD350}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E6F4C3C7-142E-4711-804A-15F13D3FD350}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E6F4C3C7-142E-4711-804A-15F13D3FD350}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E6F4C3C7-142E-4711-804A-15F13D3FD350}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {95DABBAE-CDF0-4771-9503-88C3E6581A06}
+	EndGlobalSection
+EndGlobal
