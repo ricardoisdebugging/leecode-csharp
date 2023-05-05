@@ -13,25 +13,28 @@ namespace LeeCode._0015_three_sum
             Array.Sort(nums);
 
             IList<IList<int>> results = new List<IList<int>>();
-            HashSet<string> uniqueResults = new HashSet<string>();
 
             for (int minItemIndex = 0; minItemIndex < nums.Length - 2; minItemIndex++)
             {
                 var leftIndex = minItemIndex + 1;
                 var rightIndex = nums.Length - 1;
 
+                if (nums[minItemIndex] > 0) break;
+                if (minItemIndex > 0 && nums[minItemIndex] == nums[minItemIndex - 1]) continue;
+
                 while (leftIndex < rightIndex)
                 {
                     if (nums[minItemIndex] + nums[leftIndex] + nums[rightIndex] == 0)
                     {
+                        //缓存一定要在判断之前做，否则遇到一直跳过的重复项，最终达到边界条件就无法存储可行解了
                         var tempComb = new List<int>() { nums[minItemIndex], nums[leftIndex], nums[rightIndex] };
-                        var tempString = @$"{nums[minItemIndex]}&{nums[leftIndex]}&{nums[rightIndex]}";
+                        results.Add(tempComb);
 
-                        if (!uniqueResults.Contains(tempString))
-                        {
-                            results.Add(tempComb);
-                            uniqueResults.Add(tempString);
-                        }
+                        // leftIndex++/rightIndex-- 是跳过重复项
+                        // 搭配While才能达到一直跳过重复项的目的
+                        // 但是又要有边界条件：leftIndex < rightIndex
+                        while (leftIndex < rightIndex && nums[leftIndex] == nums[leftIndex + 1]) leftIndex++;
+                        while (leftIndex < rightIndex && nums[rightIndex] == nums[rightIndex - 1]) rightIndex--;                
 
                         leftIndex++;
                         rightIndex--;
