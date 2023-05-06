@@ -19,11 +19,7 @@ namespace LeeCode._0025_remove_duplicates_from_sort_array
             var k = RemoveDuplicatesFromSortArrayImpl.RemoveDuplicatesWithRefTwoHash(ref nums);
             Assert.AreEqual(expectedNum, k);
 
-            for (int i = 0; i < k; i++)
-            {
-                Assert.AreEqual(nums[i], expectedValues[i]);
-            }
-
+            ValidateElementsInArray(nums, expectedValues, k);
         }
 
         [TestMethod()]
@@ -34,11 +30,13 @@ namespace LeeCode._0025_remove_duplicates_from_sort_array
             var k = RemoveDuplicatesFromSortArrayImpl.RemoveDuplicatesWithPointers(nums);
             Assert.AreEqual(expectedNum, k);
 
-            for (int i = 0; i < k; i++)
-            {
-                Assert.AreEqual(nums[i], expectedValues[i]);
-            }
+            ValidateElementsInArray(nums, expectedValues, k);
+        }
 
+        private void ValidateElementsInArray(int[] nums, int[] expectedValues, int numCount)
+        {
+            for (int i = 0; i < numCount; i++)
+                Assert.AreEqual(nums[i], expectedValues[i]);
         }
     }
 }
