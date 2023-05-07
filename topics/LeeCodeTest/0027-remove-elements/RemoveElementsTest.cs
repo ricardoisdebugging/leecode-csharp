@@ -10,7 +10,7 @@ using LeeCode._0025_remove_duplicates_from_sort_array;
 namespace LeeCode._0027_remove_elements
 {
     [TestClass()]
-    public class RemoveElementsImplTest
+    public class RemoveElementsTest
     {
         [TestMethod()]
         [DataRow(new int[] { 3, 2, 2, 3 }, 3, 2, new int[] { 2, 2 })]
