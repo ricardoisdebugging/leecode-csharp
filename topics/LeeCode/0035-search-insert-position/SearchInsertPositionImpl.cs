@@ -18,13 +18,12 @@ namespace LeeCode._0035_search_insert_position
         {
             int leftIdx = 0;
             int rightIdx = nums.Length - 1;
-            int midIdx = int.MaxValue;
 
             int targetIdx = nums.Length;
 
             while (leftIdx <= rightIdx)
             {
-                midIdx = leftIdx + (rightIdx - leftIdx) / 2;
+                var midIdx = leftIdx + (rightIdx - leftIdx) / 2;
 
                 int mid = nums[midIdx];
 
