@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using LeeCodeTest.Common;
 
 namespace LeeCode._0015_three_sum
 {
@@ -18,7 +19,7 @@ namespace LeeCode._0015_three_sum
         public void ThreeSumWithTwoPointersTest(int[] nums, string expectedValueText)
         {
             var results = ThreeSumImpl.ThreeSumWithTwoPointers(nums);
-            var expectedValues = ConvertStringToTargetNestedList(expectedValueText);
+            var expectedValues = Funcs.ConvertStringToTargetNestedList(expectedValueText);
 
             ValidateResultsWithExpectedValues(results, expectedValues);
         }
@@ -41,23 +42,9 @@ namespace LeeCode._0015_three_sum
         public void ThreeSumWithHashMapTest(int[] nums, string expectedValueText)
         {
             var results = ThreeSumImpl.ThreeSumWithHashMap(nums);
-            var expectedValues = ConvertStringToTargetNestedList(expectedValueText);
+            var expectedValues = Funcs.ConvertStringToTargetNestedList(expectedValueText);
 
             ValidateResultsWithExpectedValues(results, expectedValues);
-        }
-
-
-        private IList<IList<int>> ConvertStringToTargetNestedList(string valueText)
-        {
-            var valuesList = valueText.Split("@@");
-            var result = new List<IList<int>>();
-            foreach(var values in valuesList)
-            {
-                var arr = values.Split('&').Select(x => int.Parse(x)).ToList();
-                result.Add(arr);
-            }
-
-            return result;
         }
     }
 }
