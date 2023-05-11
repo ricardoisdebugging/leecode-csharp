@@ -17,8 +17,7 @@ namespace LeeCode._0039_combination_sum
             combination = new List<int>();
             potentialCombs = new List<IList<int>>();
 
-            for (int i = 0; i < candidates.Length; i++)
-                DepthFirstSearch(candidates, target, i);
+            DepthFirstSearch(candidates, target, 0);
             return potentialCombs;
         }
 
@@ -27,28 +26,31 @@ namespace LeeCode._0039_combination_sum
             if (nodeIdx >= candidates.Length)
                 return;
 
-            if (res + candidates[nodeIdx] > target)
+            if (res > target)
                 return;
 
-            if (res + candidates[nodeIdx] == target)
+            if (res == target)
             {
-                combination.Add(candidates[nodeIdx]);
                 potentialCombs.Add(combination.ToList());
-                combination.RemoveAt(combination.Count - 1);
                 return;
             }
 
-            res += candidates[nodeIdx];
-            combination.Add(candidates[nodeIdx]);
+            for (int i = nodeIdx; i < candidates.Length; i++)
+            {
+                var candidate = candidates[i];
+                res += candidate;
+                combination.Add(candidate);
+                var combStream = string.Join('-', combination);
 
-            //search from the left node
-            DepthFirstSearch(candidates, target, nodeIdx);
-            //search from the right node
-            DepthFirstSearch(candidates, target, nodeIdx + 1);
+                //search from the left node
+                DepthFirstSearch(candidates, target, i);
 
-            res -= candidates[nodeIdx];
-            combination.RemoveAt(combination.Count - 1);
-
+                res -= candidate;
+                if (combination.Count > 1)
+                    combination.RemoveAt(combination.Count - 1);
+                else
+                    combination.Clear();
+            }
         }
     }
 }
