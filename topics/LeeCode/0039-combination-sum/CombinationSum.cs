@@ -35,27 +35,18 @@ namespace LeeCode._0039_combination_sum
                 potentialCombs.Add(combination.ToList());
                 combination.RemoveAt(combination.Count - 1);
                 return;
-            }         
+            }
 
-            for(int i = nodeIdx; i < candidates.Length; i++)
-            {
-                res += candidates[i];
-                combination.Add(candidates[i]);
+            res += candidates[nodeIdx];
+            combination.Add(candidates[nodeIdx]);
 
-                if (res < target)
-                {
-                    //search from the left node
-                    DepthFirstSearch(candidates, target, i);
-                    //search from the right node
-                    DepthFirstSearch(candidates, target, i + 1);
-                }
+            //search from the left node
+            DepthFirstSearch(candidates, target, nodeIdx);
+            //search from the right node
+            DepthFirstSearch(candidates, target, nodeIdx + 1);
 
-                if (res == target)
-                    potentialCombs.Add(combination.ToList());
-
-                res -= candidates[i];
-                combination.RemoveAt(combination.Count - 1);         
-            }    
+            res -= candidates[nodeIdx];
+            combination.RemoveAt(combination.Count - 1);
 
         }
     }
