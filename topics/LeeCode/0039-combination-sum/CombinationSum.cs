@@ -17,7 +17,8 @@ namespace LeeCode._0039_combination_sum
             combination = new List<int>();
             potentialCombs = new List<IList<int>>();
 
-            DepthFirstSearch(candidates, target, 0);
+            for (int i = 0; i < candidates.Length; i++)
+                DepthFirstSearch(candidates, target, i);
             return potentialCombs;
         }
 
