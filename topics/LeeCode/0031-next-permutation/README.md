@@ -22,3 +22,34 @@
 第三步，交换nums[i]与nums[j]。
 
 第四步，对于[i+1, n)，重新排序
+
+---
+题目 #
+Implement next permutation, which rearranges numbers into the lexicographically next greater permutation of numbers.
+
+If such an arrangement is not possible, it must rearrange it as the lowest possible order (i.e., sorted in ascending order).
+
+The replacement must be  in place and use only constant extra memory.
+
+Example 1:
+
+Input: nums = [1,2,3]
+Output: [1,3,2]
+Example 2:
+
+Input: nums = [3,2,1]
+Output: [1,2,3]
+Example 3:
+
+Input: nums = [1,1,5]
+Output: [1,5,1]
+Example 4:
+
+Input: nums = [1]
+Output: [1]
+Constraints:
+
+1 <= nums.length <= 100
+0 <= nums[i] <= 100
+题目大意 #
+实现获取 下一个排列 的函数，算法需要将给定数字序列重新排列成字典序中下一个更大的排列。如果不存在下一个更大的排列，则将数字重新排列成最小的排列（即升序排列）。必须 原地 修改，只允许使用额外常数空间。
