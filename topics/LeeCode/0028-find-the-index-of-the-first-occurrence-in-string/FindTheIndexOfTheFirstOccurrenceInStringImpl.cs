@@ -13,18 +13,18 @@ namespace LeeCode._0028_find_the_index_of_the_first_occurrence_in_string
             var leftIdx = 0;
             var rightIdx = 0;
 
-            while(leftIdx < haystack.Length)
+            while(rightIdx < haystack.Length)
             {
-                leftIdx++;
+                rightIdx++;
 
-                if (leftIdx - rightIdx == needle.Length)
+                if (rightIdx - leftIdx == needle.Length)
                 {
-                    var subStr = haystack.Substring(rightIdx, needle.Length);
+                    var subStr = haystack.Substring(leftIdx, needle.Length);
 
                     if (string.Equals(subStr, needle, StringComparison.OrdinalIgnoreCase))
-                        return rightIdx;
+                        return leftIdx;
 
-                    rightIdx++;
+                    leftIdx++;
                 }
             }
 
