@@ -18,3 +18,8 @@ For the purpose of this problem, we define empty string as valid palindrome.
 
 ---
 该题与第9题基本类似，就是需要前提需要去除符号和空格
+
+---
+参考资料：
+
+C# 正则表达式
