@@ -14,8 +14,7 @@ namespace LeeCode._0160_intersection_of_two_linked_lists
 
             (ListNode longerListNode, ListNode shorterListNode, int diff) = DistinguishLongerAndShorterLists(headA, lenA, headB, lenB);
 
-            var isFirstIntersectionNode = true;
-            var intersectionNode = new ListNode();
+            ListNode intersectionNode = null;
             int countDiff = 0;
             while (longerListNode != null)
             {
@@ -23,19 +22,10 @@ namespace LeeCode._0160_intersection_of_two_linked_lists
                     MoveForwardLongerList(ref longerListNode);
                 else
                 {
-                    if (longerListNode.val != shorterListNode.val)
-                        ResetIntersectionNode(ref intersectionNode, out isFirstIntersectionNode);
-                    else
-                    {
-                        if (isFirstIntersectionNode)
-                            StartRecordCountIntersectionNode(ref intersectionNode, out isFirstIntersectionNode, longerListNode);
-                    }
-
-                    if (longerListNode.next != null)
-                    {
-                        longerListNode = longerListNode.next;
-                        shorterListNode = shorterListNode.next;
-                    }
+                    if (longerListNode == shorterListNode)
+                        return longerListNode;
+                    longerListNode = longerListNode.next;
+                    shorterListNode = shorterListNode.next;
                 }
 
                 countDiff++;
@@ -46,23 +36,6 @@ namespace LeeCode._0160_intersection_of_two_linked_lists
 
         private void MoveForwardLongerList(ref ListNode listNode)
             => listNode = listNode.next;
-
-        private void ResetIntersectionNode(ref ListNode listNode, out bool isFirstIntersectionNode)
-        {
-            isFirstIntersectionNode = true;
-            listNode = null;
-        }
-
-        private bool IsFirstIntersectionNode(int intersectionIdx)
-        {
-            return (intersectionIdx == 0);
-        }
-
-        private void StartRecordCountIntersectionNode(ref ListNode recordNode, out bool isFirstIntersectionNode, ListNode listNode)
-        {
-            isFirstIntersectionNode = false;
-            recordNode = listNode;
-        }
 
         private (ListNode lastNode, int linkedListLen) GetLastNodeAndListLen(ListNode head)
         {
