@@ -44,6 +44,37 @@ namespace LeeCodeTest.Common
             return head;
         }
 
+        public static ListNode ConvertArrayToCycleListNode(int[] array, int pos)
+        {
+            ListNode head = null;
+            ListNode node = null;
+            foreach (var ele in array)
+            {
+                var tmp = new ListNode(ele);
+                if (head == null)
+                {
+                    head = tmp;
+                    node = head;
+                }
+                else
+                {
+                    node.next = tmp;
+                    node = node.next;
+                }
+            }
+
+            ListNode cycleNode = head;
+            for (int i = 0; i <= pos; i++)
+            {
+                if (i == pos)
+                    node.next = cycleNode;
+
+                cycleNode = cycleNode.next;
+            }
+
+            return head;
+        }
+
         public static List<int> ConvertListNodeToList(ListNode head)
         {
             var array = new List<int>();
